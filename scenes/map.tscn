@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://4e1irqw1q7et"]
+
+[ext_resource type="TileSet" uid="uid://x7xco0k1sl4n" path="res://assets/tiles/map_set.tres" id="1_4xfga"]
+[ext_resource type="Script" uid="uid://nvbll2trtiqb" path="res://scripts/map_renderer/renderMap.gd" id="2_paxxb"]
+
+[node name="Map" type="Node2D" unique_id=1237066702]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=78698495]
+tile_set = ExtResource("1_4xfga")
+script = ExtResource("2_paxxb")
