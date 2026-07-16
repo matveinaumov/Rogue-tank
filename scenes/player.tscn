@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://cmgxcv1h1h6b3"]
 
-[ext_resource type="Texture2D" uid="uid://cb7k037p31x2u" path="res://assets/textures/player.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://5xkjslj1p5yq" path="res://assets/textures/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bnir5n6ekxg24" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://cswgtcpu76k2e" path="res://scripts/dulo.gd" id="3_dqkch"]
+[ext_resource type="Texture2D" uid="uid://txgf1trvs0km" path="res://assets/textures/palka.png" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4kwe"]
-size = Vector2(14, 16)
+size = Vector2(15, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_3vyb7")
@@ -32,11 +34,26 @@ animations = [{
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1527239676]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_k4kwe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=353147534]
 unique_name_in_owner = true
+texture_filter = 1
+rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_uqdiu")
 animation = &"drive"
-frame = 1
-frame_progress = 0.7176553
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=201426969]
+zoom = Vector2(3, 3)
+
+[node name="dulo" type="Node2D" parent="." unique_id=340834057]
+script = ExtResource("3_dqkch")
+
+[node name="Sprite2D" type="Sprite2D" parent="dulo" unique_id=2005157731]
+position = Vector2(8, 0)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_qhqgy")
+
+[node name="bullet_spawner" type="Marker2D" parent="dulo" unique_id=2030215716]
+position = Vector2(15, 0)

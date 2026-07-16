@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dpcir2bayl4di"]
+
+[ext_resource type="Texture2D" uid="uid://wly6almloy26" path="res://assets/textures/bullet.png" id="1_mkf8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]
+size = Vector2(548, 132)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1208591943]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968956668]
+shape = SubResource("RectangleShape2D_y25gk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=620228990]
+rotation = 1.5707964
+texture = ExtResource("1_mkf8s")

@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dabd2i175xxo1"]
 
 [ext_resource type="PackedScene" uid="uid://cmgxcv1h1h6b3" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://dkvgx8jxeaal8" path="res://icon.svg" id="1_yqjtg"]
 
 [node name="game" type="Node2D" unique_id=447928236]
 
-[node name="Player" parent="." unique_id=982573507 instance=ExtResource("1_uwrxv")]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=434101611]
+scale = Vector2(3.88, 3.88)
+texture = ExtResource("1_yqjtg")
 
-[node name="Camera" type="Camera2D" parent="." unique_id=831317983]
-zoom = Vector2(3, 3)
+[node name="Player" parent="." unique_id=982573507 instance=ExtResource("1_uwrxv")]
