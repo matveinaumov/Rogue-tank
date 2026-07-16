@@ -1,11 +1,5 @@
 extends CharacterBody2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	%AnimatedSprite2D.play("drive")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+@export var speed = 500
+func get_input():
+	var input_dir = Input.get_vector("left","right","up","down")

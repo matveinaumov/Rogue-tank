@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bnir5n6ekxg24" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4kwe"]
+size = Vector2(14, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_3vyb7")
