@@ -48,6 +48,7 @@ animation = &"drive"
 zoom = Vector2(3, 3)
 
 [node name="dulo" type="Node2D" parent="." unique_id=340834057]
+unique_name_in_owner = true
 script = ExtResource("3_dqkch")
 
 [node name="Sprite2D" type="Sprite2D" parent="dulo" unique_id=2005157731]
@@ -56,4 +57,10 @@ scale = Vector2(0.01, 0.01)
 texture = ExtResource("3_qhqgy")
 
 [node name="bullet_spawner" type="Marker2D" parent="dulo" unique_id=2030215716]
+unique_name_in_owner = true
 position = Vector2(15, 0)
+
+[node name="reload" type="Timer" parent="dulo" unique_id=2026650129]
+unique_name_in_owner = true
+wait_time = 0.6
+one_shot = true
