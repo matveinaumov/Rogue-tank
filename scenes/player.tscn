@@ -1,39 +1,66 @@
 [gd_scene format=3 uid="uid://cmgxcv1h1h6b3"]
 
-[ext_resource type="Texture2D" uid="uid://hm0hoh86e3oh" path="res://assets/textures/tank.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://5xkjslj1p5yq" path="res://assets/textures/player.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bnir5n6ekxg24" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://cswgtcpu76k2e" path="res://scripts/dulo.gd" id="3_dqkch"]
+[ext_resource type="Texture2D" uid="uid://txgf1trvs0km" path="res://assets/textures/palka.png" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4kwe"]
+size = Vector2(15, 14)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tgddd"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_uqdiu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qhqgy")
+"texture": SubResource("AtlasTexture_3vyb7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dqkch")
+"texture": SubResource("AtlasTexture_g2els")
 }],
 "loop": 1,
-"name": &"default",
-"speed": 3.0
+"name": &"drive",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=982573507]
+script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1527239676]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_k4kwe")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=613898916]
-sprite_frames = SubResource("SpriteFrames_tgddd")
-frame_progress = 0.58724827
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=353147534]
+unique_name_in_owner = true
+texture_filter = 1
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_uqdiu")
+animation = &"drive"
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=974934820]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=201426969]
 zoom = Vector2(3, 3)
+
+[node name="dulo" type="Node2D" parent="." unique_id=340834057]
+unique_name_in_owner = true
+script = ExtResource("3_dqkch")
+
+[node name="Sprite2D" type="Sprite2D" parent="dulo" unique_id=2005157731]
+position = Vector2(8, 0)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("3_qhqgy")
+
+[node name="bullet_spawner" type="Marker2D" parent="dulo" unique_id=2030215716]
+unique_name_in_owner = true
+position = Vector2(15, 0)
+
+[node name="reload" type="Timer" parent="dulo" unique_id=2026650129]
+unique_name_in_owner = true
+wait_time = 0.6
+one_shot = true
