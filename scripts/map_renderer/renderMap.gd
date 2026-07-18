@@ -5,19 +5,29 @@ extends TileMapLayer
 @export var height = 30
 
 
-var ground_tile = Vector2i(0, 0)
-var wall_tile = Vector2i(1, 0)
+
+
+
+var list = [
+	Vector2i(0, 0), # road
+	Vector2i(1, 0), # dirt
+	Vector2i(2, 0), # wall
+	Vector2i(3, 0)  # water
+]
 
 
 func _ready() -> void:
 	for y in range(height):
 		for x in range(width):
-			set_cell(Vector2(x,y), 0, wall_tile)
+			set_cell(Vector2(x,y), 0, list[0])
 			if randf() < 0.1:
-				set_cell(Vector2(x,y), 0, ground_tile)
+				set_cell(Vector2(x,y), 0, list[2])
+			if randf() < 0.1:
+				set_cell(Vector2(x,y), 0, list[1])
+			if randf() < 0.1:
+				set_cell(Vector2(x,y), 0, list[3])
 	pass 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
