@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cmgxcv1h1h6b3" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dkvgx8jxeaal8" path="res://icon.svg" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://dpcir2bayl4di" path="res://scenes/bullet.tscn" id="3_lnu2h"]
 
 [node name="game" type="Node2D" unique_id=447928236]
 
@@ -11,6 +10,3 @@ scale = Vector2(3.88, 3.88)
 texture = ExtResource("1_yqjtg")
 
 [node name="Player" parent="." unique_id=982573507 instance=ExtResource("1_uwrxv")]
-
-[node name="bullet" parent="." unique_id=1208591943 instance=ExtResource("3_lnu2h")]
-position = Vector2(-94, 124)
