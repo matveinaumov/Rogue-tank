@@ -15,7 +15,6 @@ func piupiu():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
-	print(%reload.time_left)
 	
 func _input(event: InputEvent) -> void:
 	if(event is InputEventMouseButton and event.is_pressed() and %reload.time_left ==0.0):
