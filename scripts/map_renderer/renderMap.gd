@@ -1,11 +1,13 @@
 extends TileMapLayer
 
 
-@export var _Path : int = randi_range(10,20)
+@export var _Path : int = randi_range(5,10)
 
 @export var _Size_Dunger : Vector2i = Vector2i(50,30)
+@export var player: Node2D
 
 @export var rooms : Array
+@export var current_room : int = 0
 
 @export var list = [
 	Vector2i(0, 0), # road
@@ -20,8 +22,26 @@ class Room:
 	var size_room : Vector2i
 	var Way_room : Dictionary = {}
 	var cell : Array
+	var setup : bool = false
 	
-	
+	func SetUp() -> void:
+		if setup: return
+		for i in Way_room:
+			if Way_room[i] == "Right":
+				for y in range(size_room.y/2-1, size_room.y/2+1):
+					cell[y][size_room.x-1] = Vector2i(3,0) 
+			elif Way_room[i] == "Left":
+				for y in range(size_room.y/2-1, size_room.y/2+1):
+					cell[y][0] = Vector2i(3,0) 
+			elif Way_room[i] == "Up":
+				for x in range(size_room.x/2-1, size_room.x/2+1):
+					cell[0][x] = Vector2i(3,0) 
+			elif Way_room[i] == "Down":
+				for x in range(size_room.x/2-1,size_room.x/2+1):
+					cell[size_room.y-1][x] = Vector2i(3,0) 
+
+
+
 	func _init(s: Vector2i):
 		size_room = s
 		_intz_cell()
@@ -36,6 +56,9 @@ class Room:
 					cell[y].append(Vector2(2,0))
 				else:
 					cell[y].append(Vector2(0,0))
+	
+	func End() -> void:
+		cell[10][10] = Vector2i(3,0)
 
 
 
@@ -69,8 +92,9 @@ func ADD_Rooms(r : Array):
 				r[i].Way_room[j] = "Up"
 				r[j].Way_room[i] = "Down"
 	
-	#for i in range(r.size()):
-		#print(i, r[i].Way_room)
+	for i in range(r.size()):
+		print(i, r[i].Way_room)
+	r[r.size()-1].End()
 
 func Rooms_in(count : int):
 	for i in range(count):
@@ -108,16 +132,19 @@ func Room_Draw(room : Room) -> void:
 		for x in range(room.size_room.x):
 			set_cell(Vector2i(x,y), 0,room.cell[y][x])
 
-func Draw(room : Array, id : int):
-	Room_Draw(room[id])
+func Draw(room : Array):
+	room[current_room].SetUp()
+	Room_Draw(room[current_room])
 
 
 # ----------------------------------------------------------------------------------
 
 
 func _ready() -> void:
-	
+	var player = get_parent().get_node("Player")
+	player.position = map_to_local(Vector2i(25,15))
 	ADD_Rooms(rooms)
+	Draw(rooms)
 	pass
 	
 	

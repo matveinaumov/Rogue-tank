@@ -2,9 +2,12 @@
 
 [ext_resource type="TileSet" uid="uid://x7xco0k1sl4n" path="res://assets/tiles/map_set.tres" id="1_4xfga"]
 [ext_resource type="Script" uid="uid://nvbll2trtiqb" path="res://scripts/map_renderer/renderMap.gd" id="2_paxxb"]
+[ext_resource type="PackedScene" uid="uid://cmgxcv1h1h6b3" path="res://scenes/player.tscn" id="3_gldc4"]
 
 [node name="Map" type="Node2D" unique_id=1237066702]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=78698495]
 tile_set = ExtResource("1_4xfga")
 script = ExtResource("2_paxxb")
+
+[node name="Player" parent="." unique_id=982573507 instance=ExtResource("3_gldc4")]
