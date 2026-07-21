@@ -10,4 +10,13 @@
 tile_set = ExtResource("1_4xfga")
 script = ExtResource("2_paxxb")
 
+[node name="Label" type="Label" parent="." unique_id=1035486986]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TextEdit" type="TextEdit" parent="Label" unique_id=685006397]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="Player" parent="." unique_id=982573507 instance=ExtResource("3_gldc4")]

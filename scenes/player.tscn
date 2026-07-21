@@ -47,7 +47,7 @@ frame = 1
 frame_progress = 0.5203506
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=201426969]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 
 [node name="dulo" type="Node2D" parent="." unique_id=340834057]
 unique_name_in_owner = true

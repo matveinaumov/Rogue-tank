@@ -40,8 +40,8 @@ class Room:
 				for x in range(size_room.x/2-1,size_room.x/2+1):
 					cell[size_room.y-1][x] = Vector2i(3,0) 
 
-
-
+		
+		
 	func _init(s: Vector2i):
 		size_room = s
 		_intz_cell()
@@ -138,9 +138,26 @@ func Draw(room : Array):
 
 
 # ----------------------------------------------------------------------------------
+func St():
+	var start = Label.new()
+	start.text = "Start"
+	start.position = map_to_local(Vector2i(25, 15))
+	add_child(start)
+
+func Ed():
+	var ed = Label.new()
+	ed.text = "End"
+	ed.position = map_to_local(Vector2i(25, 15))
+	add_child(ed)
 
 
 func _ready() -> void:
+	
+	
+	if (current_room == 0):
+		St()
+	elif current_room == rooms.size()-1:
+		Ed()
 	var player = get_parent().get_node("Player")
 	player.position = map_to_local(Vector2i(25,15))
 	ADD_Rooms(rooms)
@@ -149,4 +166,5 @@ func _ready() -> void:
 	
 	
 func  _process(delta: float) -> void:
+	
 	pass
